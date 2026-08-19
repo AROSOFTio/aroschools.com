@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aroschools.com";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/", "/dashboard/"]
     },
-    sitemap: "https://aroschools.com/sitemap.xml",
-    host: "https://aroschools.com"
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl
   };
 }

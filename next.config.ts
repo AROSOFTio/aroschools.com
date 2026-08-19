@@ -1,21 +1,16 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.PAGES_BASE_PATH || "";
+
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
   poweredByHeader: false,
-  compress: true,
   reactStrictMode: true,
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" }
-        ]
-      }
-    ];
+  basePath,
+  assetPrefix: basePath || undefined,
+  images: {
+    unoptimized: true
   }
 };
 

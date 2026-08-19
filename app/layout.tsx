@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const siteUrl = "https://aroschools.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aroschools.com";
 const description =
   "AroSchools is a modern school management system and digital campus SaaS for schools in Uganda and Africa. Manage students, academics, fees, parents, staff, websites and school operations from one platform.";
 
